@@ -1,0 +1,7 @@
+In this version:
+Tables are created and linked to each other
+
+Not in this version:
+usable web pages
+devise gem
+money gem

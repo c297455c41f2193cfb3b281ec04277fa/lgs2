@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  publisher_id: 
+  designer_id: 
+  price: 1
+  msrp: 1
+  imageUrl: MyString
+  releasedate: 2017-07-13
+  playerMin: 1
+  playerMax: 1
+  timeMin: 1
+  timeMax: 1
+
+two:
+  name: MyString
+  description: MyText
+  publisher_id: 
+  designer_id: 
+  price: 1
+  msrp: 1
+  imageUrl: MyString
+  releasedate: 2017-07-13
+  playerMin: 1
+  playerMax: 1
+  timeMin: 1
+  timeMax: 1

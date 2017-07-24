@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Items</h1>
+
+<form name="search">
+  
+
+
+  <div>
+    <label for="keywords">Keywords</label>
+    <input type="text" id="keywords" name="keywords" value="" placeholder="keywords ..." />
+  </div>
+  
+  <div>
+    <label for="min_price">min_price</label>
+    <input type="number" id="min_price" name="min_price" min="0" max="10000" step="1" value="" placeholder="min price" />
+  </div>
+  
+  <div>
+    <label for="max_price">max_price</label>
+    <input type="number" id="max_price" name="max_price"  min="0" max="10000" step="1" value="" placeholder="" />
+  </div>
+  
+  <div>
+    <label for="min_player">min_player</label>
+    <input type="number" id="min_player" name="min_player" min="0" max="10000" step="1" value="" placeholder="" />
+  </div>
+  
+  <div>
+    <label for="max_player">max_player</label>
+    <input type="number" id="max_player" name="max_player" min="0" max="10000" step="1" value="" placeholder="" />
+  </div>
+
+  <input type="submit" value="Search" />  
+  
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Publisher</th>
+      <th>Designer</th>
+      <th>Price</th>
+      <th>Msrp</th>
+      <th>Imageurl</th>
+      <th>Releasedate</th>
+      <th>Playermin</th>
+      <th>Playermax</th>
+      <th>Timemin</th>
+      <th>Timemax</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td><%= item.publisher %></td>
+        <td><%= item.designer %></td>
+        <td><%= item.price %></td>
+        <td><%= item.msrp %></td>
+        <td><%= item.imageUrl %></td>
+        <td><%= item.releasedate %></td>
+        <td><%= item.playerMin %></td>
+        <td><%= item.playerMax %></td>
+        <td><%= item.timeMin %></td>
+        <td><%= item.timeMax %></td>
+        <td colspan=3>
+          <% if current_user.try(:admin?) %>
+            <%= link_to 'Show', item %>
+            <%= link_to 'Edit', edit_item_path(item) %>
+            <%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %>
+          <% else %>
+            <a href="/cart/<%= item.id %>">Add to Cart</a><br /><br />
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if current_user.try(:admin?)  %>
+  <p><%= link_to 'New Item', new_item_path %></p>
+<% end %>

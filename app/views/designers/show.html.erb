@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @designer.name %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @designer.website %>
+</p>
+
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_designer_path(@designer) %> |
+  <%= link_to 'Back', designers_path %>
+<% end %>

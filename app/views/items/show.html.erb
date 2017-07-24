@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @item.publisher %>
+</p>
+
+<p>
+  <strong>Designer:</strong>
+  <%= @item.designer %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong>Msrp:</strong>
+  <%= @item.msrp %>
+</p>
+
+<p>
+  <strong>Imageurl:</strong>
+  <%= @item.imageUrl %>
+</p>
+
+<p>
+  <strong>Releasedate:</strong>
+  <%= @item.releasedate %>
+</p>
+
+<p>
+  <strong>Playermin:</strong>
+  <%= @item.playerMin %>
+</p>
+
+<p>
+  <strong>Playermax:</strong>
+  <%= @item.playerMax %>
+</p>
+
+<p>
+  <strong>Timemin:</strong>
+  <%= @item.timeMin %>
+</p>
+
+<p>
+  <strong>Timemax:</strong>
+  <%= @item.timeMax %>
+</p>
+
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <%= link_to 'Back', items_path %>
+<% end %>
